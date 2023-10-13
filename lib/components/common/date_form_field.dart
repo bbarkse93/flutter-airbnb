@@ -2,6 +2,7 @@ import 'package:airbnb/components/common/calendar.dart';
 import 'package:airbnb/size.dart';
 import 'package:airbnb/style.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DateFormField extends StatefulWidget {
   final hintText;
@@ -13,6 +14,19 @@ class DateFormField extends StatefulWidget {
 }
 
 class _DateFormFieldState extends State<DateFormField> {
+  late TextEditingController _controller;
+  DateTime date = DateTime.now();
+
+  void choose() {
+    _controller;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: DateFormat("yy-MM-dd").format(DateTime.now()).toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -22,6 +36,7 @@ class _DateFormFieldState extends State<DateFormField> {
           child: SizedBox(
             width: double.infinity,
             child: TextFormField(
+              controller: _controller,
               textAlignVertical: TextAlignVertical.bottom,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -29,7 +44,6 @@ class _DateFormFieldState extends State<DateFormField> {
                 ),
                 hintText: widget.hintText,
               ),
-              onTap: () {},
             ),
           ),
         ),
@@ -46,7 +60,7 @@ class _DateFormFieldState extends State<DateFormField> {
           right: 10,
           child: IconButton(
             icon: Icon(Icons.calendar_month),
-            onPressed: () {
+            onPressed: () async {
               showDialog(
                 context: context,
                 builder: (context) {
