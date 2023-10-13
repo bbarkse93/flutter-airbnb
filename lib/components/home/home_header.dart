@@ -7,15 +7,19 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
-      ),
-      child: Column(
-        children: [
-          HomeHeaderAppBar(),
-          HomeHeaderForm(),
-        ],
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Align(
+      alignment: screenWidth < 520 ? Alignment(0, 0) : Alignment(-0.6, 0),
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+        ),
+        child: Column(
+          children: [
+            HomeHeaderAppBar(),
+            HomeHeaderForm(),
+          ],
+        ),
       ),
     );
   }

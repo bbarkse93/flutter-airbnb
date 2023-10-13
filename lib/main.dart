@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: ListView(
-          children: [HomeHeader()],
+          children: [
+            HomeHeader(),
+          ],
         ),
       ),
     );
