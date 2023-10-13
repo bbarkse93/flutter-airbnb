@@ -1,5 +1,6 @@
 import 'package:airbnb/components/home/home_header_appbar.dart';
 import 'package:airbnb/components/home/home_header_form.dart';
+import 'package:airbnb/size.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -10,15 +11,19 @@ class HomeHeader extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     return Align(
       alignment: screenWidth < 520 ? Alignment(0, 0) : Alignment(-0.6, 0),
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
-        ),
-        child: Column(
-          children: [
-            HomeHeaderAppBar(),
-            HomeHeaderForm(),
-          ],
+      child: SizedBox(
+        width: double.infinity,
+        height: header_height,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+          ),
+          child: Column(
+            children: [
+              HomeHeaderAppBar(),
+              HomeHeaderForm(),
+            ],
+          ),
         ),
       ),
     );

@@ -8,12 +8,15 @@ class HomeHeaderAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildAppBarLogo(),
-        _buildAppBarMenu(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_m),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildAppBarLogo(),
+          _buildAppBarMenu(),
+        ],
+      ),
     );
   }
 
